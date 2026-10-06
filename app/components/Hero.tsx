@@ -220,7 +220,7 @@ export default function Hero() {
               {/* Photo */}
               <div className="absolute inset-[6px] rounded-3xl overflow-hidden bg-neutral-200">
                 <Image
-                  src="/profile.png"
+                  src="/Profile.png"
                   alt="Don Belly Star Ndanga"
                   fill
                   className="object-cover"
