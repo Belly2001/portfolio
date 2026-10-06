@@ -36,13 +36,12 @@ import { FaJava } from 'react-icons/fa';
 
 type Skill = {
   name: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   color: string;
 };
-
 type Category = {
   title: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   gradient: string;
   skills: Skill[];
 };
