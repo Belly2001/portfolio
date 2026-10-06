@@ -53,11 +53,6 @@ export default function Footer() {
         {/* Ligne de séparation + copyright */}
         <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-neutral-500">
           <div>© {currentYear} Don Ndanga. Tous droits réservés.</div>
-          <div className="flex items-center gap-1.5">
-            Construit avec
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
-            en Next.js & Tailwind CSS
-          </div>
         </div>
       </div>
     </footer>
