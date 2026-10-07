@@ -4,6 +4,7 @@ import Projects from './components/Projects';
 import SkillsMarquee from './components/SkillsMarquee';
 import Skills from './components/Skills';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Projects />
       <SkillsMarquee />
       <Skills />
+      <Footer />
     </main>
   );
 }
