@@ -37,6 +37,45 @@ export default function Contact() {
         }}
       />
 
+            {/* Grille de fond */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(to right, #2563eb 1px, transparent 1px),
+                            linear-gradient(to bottom, #2563eb 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* Grand blob bleu centré qui pulse */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-blue-500/15 blur-[120px] pointer-events-none"
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      {/* Petit blob orange en haut à droite */}
+      <motion.div
+        className="absolute top-20 right-20 w-72 h-72 rounded-full bg-orange-400/20 blur-[80px] pointer-events-none"
+        animate={{
+          x: [0, 40, 0],
+          y: [0, -30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* ============ TITRE ============ */}
         <motion.div

@@ -30,13 +30,45 @@ const TIMELINE = [
 export default function About() {
   return (
     <section id="about" className="relative py-24 lg:py-32 bg-[#F5F2EB] text-neutral-900 overflow-hidden">
-      {/* Grille de fond discrète */}
+      {/* Grille de fond */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(to right, #2563eb 1px, transparent 1px),
                             linear-gradient(to bottom, #2563eb 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* Blob 1 - Bleu pastel (haut gauche) */}
+      <motion.div
+        className="absolute w-[400px] h-[400px] rounded-full bg-blue-300/40 blur-[80px] pointer-events-none"
+        style={{ top: '10%', left: '-100px' }}
+        animate={{
+          x: [0, 100, 0],
+          y: [0, 80, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      {/* Blob 2 - Violet pastel (bas droite) */}
+      <motion.div
+        className="absolute w-[350px] h-[350px] rounded-full bg-purple-300/40 blur-[80px] pointer-events-none"
+        style={{ bottom: '10%', right: '-80px' }}
+        animate={{
+          x: [0, -100, 0],
+          y: [0, -60, 0],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          ease: 'easeInOut',
         }}
       />
 

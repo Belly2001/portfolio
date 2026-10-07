@@ -96,6 +96,20 @@ export default function Projects() {
         }}
       />
 
+      {/* Blob bleu qui respire */}
+      <motion.div
+        className="absolute top-1/3 -right-32 w-[500px] h-[500px] rounded-full bg-blue-400/20 blur-[100px] pointer-events-none"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
         {/* ============ TITRE ============ */}
         <motion.div

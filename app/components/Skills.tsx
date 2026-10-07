@@ -110,12 +110,48 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-24 lg:py-32 bg-[#F5F2EB] text-neutral-900 overflow-hidden">
       {/* Grille de fond discrète */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+      {/* Grille de fond avec effet au scroll */}
+      <motion.div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(to right, #2563eb 1px, transparent 1px),
                             linear-gradient(to bottom, #2563eb 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '60px 60px'],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+      />
+
+      {/* Deux blobs cyan/violet qui pulsent lentement */}
+      <motion.div
+        className="absolute top-10 left-10 w-80 h-80 rounded-full bg-cyan-400/15 blur-[80px] pointer-events-none"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-purple-400/15 blur-[90px] pointer-events-none"
+        animate={{
+          scale: [1.1, 1, 1.1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
         }}
       />
 
