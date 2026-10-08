@@ -237,8 +237,25 @@ export default function Hero() {
               transition={{ duration: 0.3 }}
               className="relative w-80 h-80 xl:w-96 xl:h-96"
             >
-              {/* Halo coloré derrière (optionnel, donne du volume) */}
+              {/* Halo coloré derrière (ce que tu as déjà) */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-orange-300 opacity-40 blur-2xl animate-blob-shape" />
+
+              {/* Ring Pulse #1 — anneau bleu qui s'étend ET change de forme */}
+              <div
+                className="absolute inset-0 border-4 border-blue-500"
+                style={{
+                  animation: 'blob-shape 8s ease-in-out infinite, ring-pulse 2.5s ease-out infinite',
+                }}
+              />
+
+              {/* Ring Pulse #2 — décalé dans le temps */}
+              <div
+                className="absolute inset-0 border-4 border-blue-500"
+                style={{
+                  animation: 'blob-shape 8s ease-in-out infinite, ring-pulse 2.5s ease-out infinite',
+                  animationDelay: '0s, 1.25s',
+                }}
+              />
 
               {/* Photo avec forme organique animée */}
               <div className="relative w-full h-full overflow-hidden bg-neutral-200 animate-blob-shape border-4 border-white shadow-2xl">
