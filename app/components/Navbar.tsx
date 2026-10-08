@@ -41,7 +41,7 @@ export default function Navbar() {
             href="#"
             className="text-lg font-bold text-neutral-900 tracking-tight hover:text-blue-600 transition-colors"
           >
-            Don Ndanga<span className="text-blue-600">.</span>
+            Mon PortFolio<span className="text-blue-600"></span>
           </a>
 
           {/* NAV DESKTOP */}
