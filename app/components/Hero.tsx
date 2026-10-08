@@ -93,6 +93,46 @@ export default function Hero() {
                 En recherche d&apos;alternance
               </h2>
             </motion.div>
+                        {/* ============ PHOTO MOBILE (visible seulement sur petit écran) ============ */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative flex justify-center my-8 lg:hidden"
+            >
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64">
+                {/* Halo coloré */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-orange-300 opacity-40 blur-2xl animate-blob-shape" />
+
+                {/* Ring Pulse #1 */}
+                <div
+                  className="absolute inset-0 border-4 border-blue-500"
+                  style={{
+                    animation: 'blob-shape 8s ease-in-out infinite, ring-pulse 2.5s ease-out infinite',
+                  }}
+                />
+
+                {/* Ring Pulse #2 */}
+                <div
+                  className="absolute inset-0 border-4 border-blue-500"
+                  style={{
+                    animation: 'blob-shape 8s ease-in-out infinite, ring-pulse 2.5s ease-out infinite',
+                    animationDelay: '0s, 1.25s',
+                  }}
+                />
+
+                {/* Photo */}
+                <div className="relative w-full h-full overflow-hidden bg-neutral-200 animate-blob-shape border-4 border-white shadow-2xl">
+                  <Image
+                    src="/Profile.png"
+                    alt="Don Belly Star Ndanga"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            </motion.div>
 
             {/* 2. NOM — effet machine à écrire */}
             <motion.h1
