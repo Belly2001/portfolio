@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
+  { label: 'Accueil', href: '#home' },
   { label: 'À propos', href: '#about' },
   { label: 'Projets', href: '#projects' },
   { label: 'Compétences', href: '#skills' },

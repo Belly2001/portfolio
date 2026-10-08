@@ -101,83 +101,16 @@ export default function Parcours() {
             <div className="w-10 h-[2px] bg-blue-600" />
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-            Formation & <span className="text-blue-600">Expériences</span>
+            Expériences & <span className="text-blue-600">Formation</span>
           </h2>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Un parcours bâti sur la curiosité, l&apos;engagement et la rigueur technique.
-          </p>
         </motion.div>
 
         {/* ============ GRID 2 COLONNES ============ */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          
-          {/* ============ COLONNE GAUCHE : FORMATION ============ */}
+
+          {/* ============ COLONNE GAUCHE : EXPÉRIENCES ============ */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* En-tête de colonne */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center shadow-lg">
-                <GraduationCap className="w-5 h-5 text-white" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-neutral-900">
-                Formation
-              </h3>
-            </div>
-
-            {/* Items */}
-            <div className="space-y-5">
-              {FORMATION.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -3 }}
-                  className="relative p-5 bg-white/80 backdrop-blur rounded-2xl border border-neutral-200 hover:border-blue-300 hover:shadow-xl transition-all"
-                >
-                  {/* Badge "En cours" */}
-                  {item.current && (
-                    <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-700 text-xs font-semibold">
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
-                      </span>
-                      En cours
-                    </div>
-                  )}
-
-                  {/* Période */}
-                  <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">
-                    {item.period}
-                  </div>
-
-                  {/* Titre */}
-                  <h4 className="text-lg font-bold text-neutral-900 mb-1">
-                    {item.title}
-                  </h4>
-
-                  {/* Lieu */}
-                  <div className="text-sm text-neutral-600 mb-3">
-                    {item.place}
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-neutral-700 leading-relaxed">
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* ============ COLONNE DROITE : EXPÉRIENCES ============ */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}
@@ -240,6 +173,70 @@ export default function Parcours() {
                   </motion.div>
                 );
               })}
+            </div>
+          </motion.div>
+
+          {/* ============ COLONNE DROITE : FORMATION ============ */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* En-tête de colonne */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-sky-500 flex items-center justify-center shadow-lg">
+                <GraduationCap className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-neutral-900">
+                Formation
+              </h3>
+            </div>
+
+            {/* Items */}
+            <div className="space-y-5">
+              {FORMATION.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  whileHover={{ y: -3 }}
+                  className="relative p-5 bg-white/80 backdrop-blur rounded-2xl border border-neutral-200 hover:border-blue-300 hover:shadow-xl transition-all"
+                >
+                  {/* Badge "En cours" */}
+                  {item.current && (
+                    <div className="absolute top-5 right-5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-700 text-xs font-semibold">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                      </span>
+                      En cours
+                    </div>
+                  )}
+
+                  {/* Période */}
+                  <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">
+                    {item.period}
+                  </div>
+
+                  {/* Titre */}
+                  <h4 className="text-lg font-bold text-neutral-900 mb-1">
+                    {item.title}
+                  </h4>
+
+                  {/* Lieu */}
+                  <div className="text-sm text-neutral-600 mb-3">
+                    {item.place}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-neutral-700 leading-relaxed">
+                    {item.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

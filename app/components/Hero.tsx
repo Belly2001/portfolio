@@ -151,9 +151,9 @@ export default function Hero() {
               className="text-2xl md:text-3xl text-neutral-900 max-w-xl mb-8 leading-snug"
               style={{ fontFamily: '"Caveat", cursive' }}
             >
-             " <span className="text-black-700 font-bold">Comprendre</span> le besoin,{' '}
-              <span className="text-black-700 font-bold">concevoir</span> la solution,{' '}
-              <span className="text-black-700 font-bold">livrer</span> une application métier pensée pour ses utilisateurs."
+             " <span className="text-neutral-900 font-bold">Comprendre</span> le besoin,{' '}
+              <span className="text-neutral-900 font-bold">concevoir</span> la solution,{' '}
+              <span className="text-neutral-900 font-bold">livrer</span> une application métier pensée pour ses utilisateurs."
             </motion.p>
 
             {/* 6. BOUTONS */}
@@ -175,10 +175,9 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
 
-              {/* Télécharger CV PDF */}
               <motion.a
-                href="/cv-don-ndanga.pdf"
-                download
+                href="/cv.pdf"
+                download="CV-Don-Belly-Star-Ndanga.pdf"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-300 hover:border-neutral-500 bg-white/70 backdrop-blur rounded-xl font-medium transition-colors text-neutral-900"
@@ -234,17 +233,15 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <motion.div
-              whileHover={{ scale: 1.03, rotate: -1 }}
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
               className="relative w-80 h-80 xl:w-96 xl:h-96"
             >
-              {/* Bordure gradient qui tourne */}
-              <div className="absolute inset-0 rounded-3xl p-[3px] bg-gradient-to-br from-blue-500 via-purple-500 to-orange-500 animate-spin-slow">
-                <div className="w-full h-full rounded-3xl bg-[#F5F2EB]" />
-              </div>
+              {/* Halo coloré derrière (optionnel, donne du volume) */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-orange-300 opacity-40 blur-2xl animate-blob-shape" />
 
-              {/* Photo */}
-              <div className="absolute inset-[6px] rounded-3xl overflow-hidden bg-neutral-200">
+              {/* Photo avec forme organique animée */}
+              <div className="relative w-full h-full overflow-hidden bg-neutral-200 animate-blob-shape border-4 border-white shadow-2xl">
                 <Image
                   src="/Profile.png"
                   alt="Don Belly Star Ndanga"

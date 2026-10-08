@@ -54,3 +54,16 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+@theme {
+  --animate-blob-shape: blob-shape 8s ease-in-out infinite;
+}
+
+@keyframes blob-shape {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
