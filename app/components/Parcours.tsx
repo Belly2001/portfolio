@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Briefcase, Heart } from 'lucide-react';
 
+
 const FORMATION = [
   {
     period: '2026 — 2028',
@@ -195,7 +196,7 @@ export default function Parcours() {
                     </ul>
                   ) : (
                     <p className="text-sm text-neutral-700 leading-relaxed ml-11">
-                      {item.description}
+                      {(item as { description?: string }).description}
                     </p>
                   )}
                   </motion.div>
@@ -271,7 +272,7 @@ export default function Parcours() {
                   </ul>
                 ) : (
                   <p className="text-sm text-neutral-700 leading-relaxed">
-                    {item.description}
+                    {(item as { description?: string }).description}
                   </p>
                 )}
                 </motion.div>
