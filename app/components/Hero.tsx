@@ -25,7 +25,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F2EB] text-neutral-900">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-[#F5F2EB] text-neutral-900">
       {/* ============ FOND ANIMÉ ============ */}
       <div
         className="absolute inset-0 opacity-[0.12] pointer-events-none"
@@ -191,7 +191,7 @@ export default function Hero() {
               className="text-2xl md:text-3xl text-neutral-900 max-w-xl mb-8 leading-snug"
               style={{ fontFamily: '"Caveat", cursive' }}
             >
-             " <span className="text-neutral-900 font-bold">Comprendre</span> le besoin,{' '}
+             " <span className="text-neutral-900 font-bold">Comprendre</span> les besoins,{' '}
               <span className="text-neutral-900 font-bold">concevoir</span> la solution,{' '}
               <span className="text-neutral-900 font-bold">livrer</span> une application métier pensée pour ses utilisateurs."
             </motion.p>
@@ -204,16 +204,16 @@ export default function Hero() {
               className="flex flex-wrap gap-3"
             >
               {/* Voir mon CV (redirige vers section Contact ou CV) */}
-              <motion.a
-                href="#about"
-                whileHover={{ scale: 1.03, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <FileText className="w-4 h-4" />
-                Voir mon CV
-                <ArrowRight className="w-4 h-4" />
-              </motion.a>
+            <motion.a
+              href="#parcours" 
+              whileHover={{ scale: 1.03, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-900 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <FileText className="w-4 h-4" />
+              Mon Parcours
+              <ArrowRight className="w-4 h-4" />
+            </motion.a>
 
               <motion.a
                 href="/cv.pdf"

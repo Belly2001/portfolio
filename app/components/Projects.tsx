@@ -9,11 +9,11 @@ type Project = {
   title: string;
   description: string;
   tech: string[];
-  image?: string;           // chemin vers screenshot
-  gradient: string;         // dégradé fallback
+  image?: string;
+  gradient: string;
   github?: string;
   liveUrl?: string;
-  category: string;
+  isPrivate?: boolean;  // true = projet d'entreprise, affiche "Projet privé"
 };
 
 const PROJECTS: Project[] = [
@@ -22,15 +22,13 @@ const PROJECTS: Project[] = [
     description: 'Outil interne de suivi des coûts fournisseurs. Dashboard analytique interactif avec filtres temporels et vues comparatives.',
     tech: ['Next.js', 'React', 'Recharts', 'API REST', 'JWT'],
     gradient: 'from-blue-500 to-cyan-500',
-    category: 'Stage · Totem Numérique',
-    // github et liveUrl : privé Totem, à adapter
+    isPrivate: true,
   },
   {
     title: 'League of Stones',
     description: "Jeu de cartes multijoueur en ligne inspiré de Hearthstone. Matchmaking, deck personnalisé de 20 cartes et combat tour par tour.",
     tech: ['Next.js', 'Node.js', 'Express', 'MongoDB', 'Docker', 'JWT'],
     gradient: 'from-fuchsia-500 to-pink-500',
-    category: 'Projet académique',
     github: 'https://github.com/Belly2001/league-of-stones',
   },
   {
@@ -40,7 +38,6 @@ const PROJECTS: Project[] = [
     gradient: 'from-green-500 to-emerald-500',
     github: 'https://github.com/Belly2001/carbon-footprint',
     liveUrl: 'https://carbon-footprint-gules.vercel.app',
-    category: 'Projet perso',
   },
   {
     title: 'Schedule App',
@@ -49,7 +46,6 @@ const PROJECTS: Project[] = [
     gradient: 'from-violet-500 to-purple-500',
     github: 'https://github.com/ProjetMiashs/AppEmploiDuTemps',
     liveUrl: 'https://app-emploi-du-temps.vercel.app',
-    category: 'Projet académique',
   },
   {
     title: 'WeatherCheck',
@@ -58,28 +54,26 @@ const PROJECTS: Project[] = [
     gradient: 'from-sky-500 to-blue-500',
     github: 'https://github.com/Belly2001/WeatherCheck',
     liveUrl: 'https://weather-check-mu.vercel.app',
-    category: 'Projet perso',
   },
   {
     title: 'Dungeon Battle',
-    description: "Jeu en C++ (à compléter avec ta description).",
+    description: "Un simulateur de combat automatique développé en C++",
     tech: ['C++'],
     gradient: 'from-rose-500 to-red-500',
-    category: 'Projet académique',
+    github: 'https://github.com/Belly2001/Dungeon-Auto-Battle',
   },
   {
     title: 'Declaration',
-    description: 'Application Java (à compléter avec ta description).',
+    description: 'Application de Gestion des Rapports Quotidiens de Vol (RQV).',
     tech: ['Java', 'POO'],
     gradient: 'from-amber-500 to-orange-500',
-    category: 'Projet académique',
   },
   {
     title: 'DreamPark',
-    description: 'Application Python (à compléter avec ta description).',
+    description: 'Application en Python pour la gestion des parkings.',
     tech: ['Python'],
     gradient: 'from-indigo-500 to-blue-600',
-    category: 'Projet académique',
+    github: 'https://github.com/Belly2001/DreamPark',
   },
 ];
 
@@ -126,7 +120,7 @@ export default function Projects() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-            Ce que j'ai construit
+            Ce que j&apos;ai construit
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl">
             Une sélection de projets web, académiques et personnels. Du front-end au back-end, en passant par la programmation système.
@@ -163,13 +157,6 @@ export default function Projects() {
                 )}
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                
-                {/* Badge catégorie */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 text-xs font-medium bg-white/90 backdrop-blur text-neutral-700 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
               </div>
 
               {/* CONTENU */}
@@ -225,7 +212,7 @@ export default function Projects() {
                       <span>Démo</span>
                     </a>
                   )}
-                  {!project.github && !project.liveUrl && (
+                  {project.isPrivate && (
                     <span className="text-xs text-neutral-400 italic">
                       Projet privé
                     </span>

@@ -1,43 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Clock, Phone, Send, Sparkles } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-type Status = 'idle' | 'sending' | 'success' | 'error';
-
 export default function Contact() {
-  const [status, setStatus] = useState<Status>('idle');
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus('sending');
-
-    // Simulation d'envoi — on branchera Resend demain
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setStatus('success');
-
-    // Reset après 5 secondes
-    setTimeout(() => {
-      setStatus('idle');
-      (e.target as HTMLFormElement).reset();
-    }, 5000);
-  }
-
   return (
     <section id="contact" className="relative py-24 lg:py-32 bg-[#F5F2EB] text-neutral-900 overflow-hidden">
       {/* Grille de fond */}
-      <div
-        className="absolute inset-0 opacity-[0.04] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(to right, #2563eb 1px, transparent 1px),
-                            linear-gradient(to bottom, #2563eb 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-            {/* Grille de fond */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
@@ -99,9 +69,9 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* ============ GRID : INFOS + FORMULAIRE ============ */}
+        {/* ============ GRID : INFOS + CONTACT RAPIDE ============ */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          
+
           {/* COLONNE GAUCHE : INFOS */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -124,6 +94,24 @@ export default function Contact() {
                 </div>
                 <div className="text-base font-medium text-neutral-900 break-all">
                   ndangadonbellystar@gmail.com
+                </div>
+              </div>
+            </a>
+
+            {/* Téléphone */}
+            <a
+              href="tel:+33780860866"
+              className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-neutral-200 hover:border-blue-300 hover:shadow-md transition-all group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-blue-600/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                <Phone className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-1">
+                  Téléphone
+                </div>
+                <div className="text-base font-medium text-neutral-900">
+                  +33 7 80 86 08 66
                 </div>
               </div>
             </a>
@@ -181,7 +169,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* COLONNE DROITE : FORMULAIRE */}
+          {/* COLONNE DROITE : APPEL À L'ACTION */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -189,100 +177,58 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative"
           >
-            {/* Halo lumineux derrière le form */}
+            {/* Halo lumineux derrière */}
             <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl pointer-events-none" />
 
-            <form
-              onSubmit={handleSubmit}
-              className="relative bg-white rounded-2xl border border-neutral-200 p-6 lg:p-8 shadow-lg"
-            >
-              {/* Nom */}
-              <div className="mb-5">
-                <label htmlFor="name" className="block text-sm font-semibold text-neutral-700 mb-2">
-                  Votre nom
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  disabled={status === 'sending'}
-                  placeholder="Marie Dupont"
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all disabled:opacity-50"
-                />
+            <div className="relative bg-white rounded-2xl border border-neutral-200 p-6 lg:p-8 shadow-lg">
+              {/* Badge en haut */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 mb-6">
+                <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                <span className="text-xs font-semibold text-blue-700 uppercase tracking-wider">
+                  Disponible pour échanger
+                </span>
               </div>
 
-              {/* Email */}
-              <div className="mb-5">
-                <label htmlFor="email" className="block text-sm font-semibold text-neutral-700 mb-2">
-                  Votre email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  disabled={status === 'sending'}
-                  placeholder="marie.dupont@entreprise.com"
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all disabled:opacity-50"
-                />
-              </div>
-
-              {/* Message */}
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-semibold text-neutral-700 mb-2">
-                  Votre message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  disabled={status === 'sending'}
-                  placeholder="Bonjour Don, nous recherchons un alternant Full Stack..."
-                  className="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-500/20 outline-none transition-all resize-none disabled:opacity-50"
-                />
-              </div>
-
-              {/* Bouton envoyer */}
-              <motion.button
-                type="submit"
-                disabled={status === 'sending' || status === 'success'}
-                whileHover={{ scale: status === 'idle' ? 1.02 : 1 }}
-                whileTap={{ scale: status === 'idle' ? 0.98 : 1 }}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-neutral-900 text-white rounded-xl font-medium shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed transition-shadow"
-              >
-                {status === 'idle' && (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Envoyer le message
-                  </>
-                )}
-                {status === 'sending' && (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Envoi en cours...
-                  </>
-                )}
-                {status === 'success' && (
-                  <>
-                    <CheckCircle2 className="w-4 h-4" />
-                    Message envoyé !
-                  </>
-                )}
-                {status === 'error' && (
-                  <>
-                    <AlertCircle className="w-4 h-4" />
-                    Erreur, réessayez
-                  </>
-                )}
-              </motion.button>
-
-              {/* Note en bas */}
-              <p className="text-xs text-neutral-500 text-center mt-4">
-                Je m&apos;engage à ne jamais partager vos informations.
+              {/* Message d'invitation */}
+              <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-3 leading-tight">
+                Parlons de votre projet 👋
+              </h3>
+              <p className="text-base text-neutral-600 leading-relaxed mb-8">
+                Que vous soyez recruteur, chef de projet ou simplement curieux de mon parcours,
+                je suis à votre écoute. Le moyen le plus rapide pour me joindre :
               </p>
-            </form>
+
+              {/* Bouton principal : Email */}
+              <motion.a
+                href="mailto:ndangadonbellystar@gmail.com?subject=Opportunit%C3%A9%20d%27alternance%20-%20D%C3%A9veloppeur%20Full%20Stack&body=Bonjour%20Don%2C%0A%0A"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-neutral-900 text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-shadow mb-3"
+              >
+                <Send className="w-4 h-4" />
+                M&apos;envoyer un email
+              </motion.a>
+
+              {/* Bouton secondaire : Téléphone */}
+              <motion.a
+                href="tel:+33780860866"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-white border-2 border-neutral-200 hover:border-blue-500 text-neutral-900 rounded-xl font-medium transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                M&apos;appeler
+              </motion.a>
+
+              {/* Petit encart "formulaire à venir" */}
+              <div className="mt-8 pt-6 border-t border-neutral-100">
+                <p className="text-xs text-neutral-500 text-center leading-relaxed">
+                  💡 Un formulaire de contact sera bientôt disponible.
+                  <br />
+                  En attendant, je réponds à chaque email sous 24h ⏱️
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

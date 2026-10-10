@@ -8,24 +8,37 @@ const FORMATION = [
     period: '2026 — 2028',
     title: 'Mastère Expert Full Stack',
     place: 'Campus Ynov Toulouse',
-    description: 'Formation Bac+5 en développement full stack. Alternance en cours de recherche.',
+    bullets: [
+      'Titre RNCP niveau 7 (Bac+5) sur 2 ans (M1 + M2)',
+      'Full Stack avancé : React, Next.js, APIs REST / GraphQL, microservices',
+      'Architecture logicielle (Clean Architecture, Domain-Driven Design)',
+      'DevOps & cloud natif : Docker, Kubernetes, CI/CD, GitOps',
+      'Qualité & sécurité : TDD, tests E2E, OWASP, DevSecOps',
+      'Intégration de l\'IA générative : LLM, RAG, prompt engineering',
+    ],
     current: true,
   },
   {
-    period: '2024 — 2026',
-    title: 'Licence 3 MIASHS',
-    place: 'Université Toulouse Jean Jaurès',
-    description: 'Parcours Informatique : programmation, algorithmes, projets web et logiciels.',
+    period: '2025 — 2026',
+    title: 'Licence 3 MIASHS - Parcours Informatique',
+    place: 'Université Toulouse - Jean Jaurès',
+    bullets: [],
     current: false,
   },
 ];
 
 const EXPERIENCES = [
   {
-    period: '04 — 06 / 2026',
+    period: '04/2026 — 06/2026',
     title: 'Développeur Frontend · Stage',
     place: 'Totem Numérique · Toulouse',
-    description: 'Développement d\'une interface web agrégeant des données multi-fournisseurs, en Next.js et React.',
+    bullets: [
+      'Développement du produit MonitorCostSupplier (outil de suivi des coûts fournisseurs)',
+      'Dashboard analytique interactif : graphiques dynamiques, filtres temporels, vues comparatives',
+      'Formulaire multi-fournisseurs avec validation côté client et API REST sécurisées par JWT',
+      'Filtre temporel partagé via React Context pour synchroniser l\'affichage sur l\'ensemble du dashboard',
+      'Travail en binôme avec le développeur backend en méthode Agile (sprints, dailies, reviews)',
+    ],
     icon: Briefcase,
     accent: 'blue',
   },
@@ -33,7 +46,11 @@ const EXPERIENCES = [
     period: '03 / 2022 → Actuel',
     title: 'Employé Polyvalent',
     place: 'Flunch · Labège',
-    description: 'Gestion du stress et de la pression en forte affluence, polyvalence sur plusieurs postes.',
+    bullets: [
+      'Gestion du stress et de la pression dans un environnement à forte affluence',
+      'Polyvalence sur plusieurs postes',
+      'Gestion simultanée de tâches multiples et respect des procédures qualité',
+    ],
     icon: Briefcase,
     accent: 'orange',
   },
@@ -166,10 +183,21 @@ export default function Parcours() {
                       {item.place}
                     </div>
 
-                    {/* Description */}
+                  {/* Description — puces ou texte */}
+                  {item.bullets ? (
+                    <ul className="text-sm text-neutral-700 leading-relaxed ml-11 space-y-1.5">
+                      {item.bullets.map((bullet, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-blue-600 mt-0.5 flex-shrink-0">▸</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
                     <p className="text-sm text-neutral-700 leading-relaxed ml-11">
                       {item.description}
                     </p>
+                  )}
                   </motion.div>
                 );
               })}
@@ -231,10 +259,21 @@ export default function Parcours() {
                     {item.place}
                   </div>
 
-                  {/* Description */}
+                {/* Description — puces ou texte */}
+                {item.bullets ? (
+                  <ul className="text-sm text-neutral-700 leading-relaxed space-y-1.5">
+                    {item.bullets.map((bullet, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="text-blue-600 mt-0.5 flex-shrink-0">▸</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
                   <p className="text-sm text-neutral-700 leading-relaxed">
                     {item.description}
                   </p>
+                )}
                 </motion.div>
               ))}
             </div>

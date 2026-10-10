@@ -5,8 +5,9 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Accueil', href: '#home' },
-  { label: 'À propos', href: '#about' },
+  { label: 'Accueil', href: '#hero' },
+  { label: 'À propos', href: '#presentation' },
+  { label: 'Parcours', href: '#parcours' },
   { label: 'Projets', href: '#projects' },
   { label: 'Compétences', href: '#skills' },
   { label: 'Contact', href: '#contact' },
@@ -39,7 +40,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
           {/* LOGO */}
           <a
-            href="#"
+            href="#hero"
             className="text-lg font-bold text-neutral-900 tracking-tight hover:text-blue-600 transition-colors"
           >
             Mon PortFolio<span className="text-blue-600"></span>
@@ -59,13 +60,6 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* CTA DESKTOP */}
-          <a
-            href="#contact"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-neutral-900 text-white rounded-lg text-sm font-medium hover:bg-neutral-800 transition-colors"
-          >
-            Me contacter
-          </a>
 
           {/* BURGER MOBILE */}
           <button

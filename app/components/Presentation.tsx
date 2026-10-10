@@ -134,7 +134,7 @@ export default function Presentation() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base md:text-lg text-neutral-700 leading-relaxed mb-5"
             >
-              Fort de plusieurs <span className="text-neutral-900 font-semibold">projets full stack</span> menés de la conception au déploiement, mon besoin aujourd&apos;hui est de <span className="text-blue-600 font-semibold">continuer à apprendre auprès de professionnels</span> et de me confronter à des problématiques métier réelles.
+              Fort d'une expérience <span className="text-neutral-900 font-semibold">full stack</span> : des projets menés de la conception au déploiement, mon besoin aujourd&apos;hui est de <span className="text-blue-600 font-semibold">continuer à apprendre auprès de professionnels</span> et de me confronter à des problématiques métier réelles.
             </motion.p>
 
             {/* Paragraphe 2 - Mon parcours */}
